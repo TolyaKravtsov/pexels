@@ -17,4 +17,8 @@ export const API = {
         return instance.get(`search?query=${searchQuery}`);
     },
 
+    getGalleryPhoto() {
+        return instance.get('curated?per_page=15');
+    },
+
 };

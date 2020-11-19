@@ -47,7 +47,7 @@ class Header extends React.Component {
                         <Grid item className={headerCSS.suggestedInfo}>
                             Suggested:
                             {suggested.map(data => (
-                                <span>
+                                <span key={data}>
                                     <Link
                                         to={{
                                             pathname: '/search',
@@ -65,8 +65,13 @@ class Header extends React.Component {
                     Photo by:
                     {' '}
                     <Link
-                        to={photographerUrl}
+                        to={{
+                            pathname: `${photographerUrl}`,
+                            hash: '#the-hash',
+                        }}
+                        target="_blank"
                         className={headerCSS.photographer}
+                        replace
                     >
                         {photographer}
                     </Link>

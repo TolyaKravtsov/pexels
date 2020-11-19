@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import store from './redux/ReduxStore';
 import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer';
+import PhotoGalleryContainer from './components/PhotoGallery/PhotoGalleryContainer';
 
 class App extends React.Component {
 
@@ -31,8 +32,7 @@ class App extends React.Component {
                 className="app-wrapper"
             >
                 <HeaderContainer />
-                <div>Панелька</div>
-                <div>Сами фотки</div>
+                <PhotoGalleryContainer />
             </Grid>
         );
     }
@@ -47,7 +47,7 @@ const Connect = compose(
 
 const AppContainer = () => {
     return (
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router>
             <Provider store={store}>
                 <Connect />
             </Provider>

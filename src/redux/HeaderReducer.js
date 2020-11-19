@@ -4,8 +4,6 @@ const SET_PHOTO = ' SET_PHOTO';
 const SEARCH_PHOTO = ' SEARCH_PHOTO';
 
 const HeaderReducer = (state = {}, action) => {
-    // eslint-disable-next-line no-debugger
-    debugger;
     switch (action.type) {
         case SET_PHOTO:
             return {
