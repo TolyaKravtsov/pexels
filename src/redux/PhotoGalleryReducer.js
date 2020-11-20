@@ -18,8 +18,6 @@ const PhotoGalleryReducer = (state = {}, action) => {
 export const getGalleryPhotoAC = photo => ({ type: GET_GALLERY_PHOTO, photo });
 
 export const getGalleryPhoto = page => async dispatch => {
-    // eslint-disable-next-line no-debugger
-    debugger;
     const response = await API.getGalleryPhoto(page);
     dispatch(getGalleryPhotoAC(response.data));
 };

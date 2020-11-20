@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import SearchBar from 'material-ui-search-bar';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import headerCSS from './Header.module.css';
 
 class Header extends React.Component {
@@ -14,10 +14,17 @@ class Header extends React.Component {
                     'USA', 'book', 'mother', 'concept', 'cat', 'black', 'road'],
             value: '',
         };
+        this.routeChange = this.routeChange.bind(this);
+    }
+
+    routeChange(searchString) {
+        const { history, searchPhoto } = this.props;
+        history.push(`search/${searchString}`);
+        searchPhoto(searchString);
     }
 
     render() {
-        const { headerPhoto, photographerUrl, photographer, searchPhoto } = this.props;
+        const { headerPhoto, photographerUrl, photographer } = this.props;
         const { value, suggested } = this.state;
 
         const styles = {
@@ -37,9 +44,8 @@ class Header extends React.Component {
                         <SearchBar
                             value={value}
                             onChange={newValue => this.setState({ value: newValue })}
-                            className={headerCSS.searchInput}
                             onRequestSearch={() => {
-                                searchPhoto(value);
+                                this.routeChange(value);
                             }}
                         />
                     </Grid>
@@ -82,4 +88,4 @@ class Header extends React.Component {
     }
 }
 
-export default Header;
+export default withRouter(Header);
