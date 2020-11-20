@@ -3,7 +3,12 @@ import Grid from '@material-ui/core/Grid';
 import SearchBar from 'material-ui-search-bar';
 import { Link, withRouter } from 'react-router-dom';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import styled from 'styled-components';
 import headerCSS from './Header.module.css';
+
+const StyledLink = styled(Link)`
+        cursor: pointer;
+`;
 
 class Header extends React.Component {
 
@@ -58,7 +63,7 @@ class Header extends React.Component {
                                     Suggested:
                                 {suggested.map(data => (
                                     <span key={data}>
-                                        <Link
+                                        <StyledLink
                                             onClick={() => {
                                                 searchPhoto(data);
                                             }}
@@ -67,7 +72,7 @@ class Header extends React.Component {
                                             }}
                                         >
                                             {data}
-                                        </Link>
+                                        </StyledLink>
                                     </span>
                                 ))}
                             </Grid>
@@ -76,7 +81,7 @@ class Header extends React.Component {
                     <Grid item className={headerCSS.photographerWrapper}>
                             Photo by:
                         {' '}
-                        <Link
+                        <StyledLink
                             to={{
                                 pathname: `${photographerUrl}`,
                                 hash: '#the-hash',
@@ -86,7 +91,7 @@ class Header extends React.Component {
                             replace
                         >
                             {photographer}
-                        </Link>
+                        </StyledLink>
                     </Grid>
                 </Grid>
             ) : <LinearProgress color="secondary" />

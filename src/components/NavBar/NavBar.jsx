@@ -36,6 +36,7 @@ const StyledText = styled(Grid)`
 
 const StyledLink = styled(Link)`
         text-decoration: none;
+        cursor: pointer;
 `;
 
 const NavBar = props => {

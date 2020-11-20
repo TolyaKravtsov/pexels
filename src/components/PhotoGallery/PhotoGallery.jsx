@@ -23,6 +23,11 @@ const Root = styled(Grid)`
     overflow: hidden;
     `;
 
+const StyledImg = styled.img`
+    width: 100%;
+    height:100%;
+    `;
+
 const PhotoGallery = React.memo(props => {
     const { photos } = props;
     return (
@@ -30,7 +35,7 @@ const PhotoGallery = React.memo(props => {
             {photos.map(photo => (
                 <StyledGridList cellHeight={180} key={photo.id}>
                     <StyledGridListTile key={photo.id}>
-                        <img
+                        <StyledImg
                             src={photo.src.large}
                             alt={photo.photographer}
                         />
