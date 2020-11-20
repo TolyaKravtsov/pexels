@@ -4,6 +4,8 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import GridList from '@material-ui/core/GridList';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import headerCSS from '../Header/Header.module.css';
 
 const StyledGridListTile = styled(GridListTile)`
     width: 100% !important;
@@ -32,9 +34,21 @@ const PhotoGallery = React.memo(props => {
                             src={photo.src.large}
                             alt={photo.photographer}
                         />
-                        <GridListTileBar
-                            title={photo.photographer}
-                        />
+                        <Link
+                            to={{
+                                pathname: `${photo.photographer_url}`,
+                                hash: '#the-hash',
+                            }}
+                            target="_blank"
+                            className={headerCSS.photographer}
+                            replace
+                        >
+                            {photo.photographer}
+
+                            <GridListTileBar
+                                title={photo.photographer}
+                            />
+                        </Link>
                     </StyledGridListTile>
                 </StyledGridList>
             ))}
